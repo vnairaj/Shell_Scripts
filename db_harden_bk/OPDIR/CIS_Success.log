@@ -1,0 +1,11 @@
+ 1. Patching Information - AS PER CIS STANDARDS.
+ 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS
+ 1.3 Ensure All Default schemas are dropped - AS PER CIS STANDARDS
+ 2.1.1 Ensure Secure Control Listener is Set  - AS PER CIS STANDARDS
+ 2.1.2 Ensure Extproc is removed   -  AS PER CIS STANDARDS 
+ 2.1.3 Ensure Admin restriction is Set  -  AS PER CIS STANDARDS
+ 2.1.4 Ensure Secure Registration is Set to TCP/IPC -  AS PER CIS STANDARDS
+ 2.2.1 Ensure SYS AUDIT OPERATION ARE ENABLED - AS PER CIS STANDARDS
+ 2.2.2 Ensure AUDIT Trail is not set to NONE  - AS PER CIS STANDARDS
+ 2.2.3 Ensure Global Names are set to True - AS PER CIS STANDARDS
+ 2.2.4 Ensure Local Listener is set to appropriate value - AS PER CIS STANDARDS

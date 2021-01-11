@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='LOCAL_LISTENER';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=VR-MIG-01)(PORT=1521)))             
+
+SQL> 
+SQL> spool off
+
+2.2.4 Ensure Local Listener is set to appropriate value  - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.4 check ***************************
+*********************************************************************************

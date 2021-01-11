@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE TABLE_NAME='LINK$'
+  4  AND GRANTEE NOT IN ('DV_SECANALYST');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.5.3 Ensure ALL Is Revoked from Unauthorized GRANTEE on LINK$ - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.5.3 check ***************************
+*********************************************************************************

@@ -1,0 +1,10 @@
+SQL> 
+SQL> REVOKE EXECUTE ANY PROCEDURE FROM OUTLN;
+REVOKE EXECUTE ANY PROCEDURE FROM OUTLN
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'OUTLN' 
+
+
+SQL> 
+SQL> spool off

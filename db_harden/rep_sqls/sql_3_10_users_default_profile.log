@@ -1,0 +1,18 @@
+SQL> 
+SQL> SELECT USERNAME
+  2  FROM DBA_USERS
+  3  WHERE PROFILE='DEFAULT'
+  4  AND ACCOUNT_STATUS='OPEN'
+  5  AND USERNAME NOT IN
+  6  ('ANONYMOUS', 'CTXSYS', 'DBSNMP', 'EXFSYS', 'LBACSYS',
+  7  'MDSYS', 'MGMT_VIEW','OLAPSYS','OWBSYS', 'ORDPLUGINS',
+  8  'ORDSYS', 'OUTLN', 'SI_INFORMTN_SCHEMA','SYS',
+  9  'SYSMAN', 'SYSTEM', 'TSMSYS', 'WK_TEST', 'WKSYS',
+ 10  'WKPROXY', 'WMSYS', 'XDB', 'CISSCAN');
+
+USERNAME                                                                        
+--------------------------------------------------------------------------------
+INTELLECTCARDS                                                                  
+
+SQL> 
+SQL> spool off

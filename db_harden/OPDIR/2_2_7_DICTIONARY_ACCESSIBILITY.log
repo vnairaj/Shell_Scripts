@@ -1,0 +1,14 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='O7_DICTIONARY_ACCESSIBILITY';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 2.2.7 Ensure O7_DICTIONARY_ACCESSIBILITY Is Set to FALSE  - NOT AS PER CIS STANDARDS .. Need Attention
+
+*************************** End of this module 2.2.7 check ***************************
+*********************************************************************************

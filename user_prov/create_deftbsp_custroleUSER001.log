@@ -1,0 +1,12 @@
+CREATE USER USER001 IDENTIFIED BY "Temp#123" DEFAULT TABLESPACE TAB PASSWORD EXPIRE ACCOUNT UNLOCK
+*
+ERROR at line 1:
+ORA-00959: tablespace 'TAB' does not exist 
+
+
+grant connect,DBA  to USER001
+                      *
+ERROR at line 1:
+ORA-01917: user or role 'USER001' does not exist 
+
+

@@ -1,0 +1,295 @@
+#!/bin/bash
+SHELLDIR=/home/oracle/shell_scr/db_harden
+FINALDIR=${SHELLDIR}/OPDIR
+HARDENDIR=${FINALDIR}/HRDSQLDIR
+REPSQLDIR=${SHELLDIR}/rep_sqls
+mkdir  -p ${SHELLDIR}
+mkdir  -p ${FINALDIR}
+mkdir  -p ${HARDENDIR}
+cat /etc/oratab | grep -v + | tail -1 | tr ":"  "\n" | head -1 > ${SHELLDIR}/DBNAME.out
+cat /etc/oratab | grep -v + | tail -1 | tr ":"  "\n" | head -2 | tail -1  > ${SHELLDIR}/OHOME.out
+
+rm -rf ${FINALDIR}/*.log
+
+DBNAME=`cat ${SHELLDIR}/DBNAME.out`
+OHOME=`cat ${SHELLDIR}/OHOME.out`
+
+clear
+echo "***************************************************************************************"
+echo "*                   DATABASE HARDENING AUTOMATIONION SCRIPT                         *"
+echo "*             ! This Script is to harden params in the Oracle Database as per CSI  !           *"
+echo "*                     Please proceed the information's below                          *"
+echo "*            No Intervention required                                             *"
+echo "***************************************************************************************"
+
+
+REP_Fn_1_patch_artifact()
+{
+echo "****************************************************************************************" > ${FINALDIR}/1_patch_artifact.log
+echo ""
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+
+echo "  1. Patching Information "  >> ${FINALDIR}/1_patch_artifact.log
+
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+
+${OHOME}/OPatch/opatch lsinventory | grep -A 34 "Local Machine Information"  >> ${FINALDIR}/1_patch_artifact.log
+
+patch_appl=`${OHOME}/OPatch/opatch lsinventory | grep applied | head -1`
+
+patch_in_sec=`echo ${patch_appl} | cut -d " " -f7,8,9`
+
+curr_sec=`date +%s`
+patch_in_sec=`date -d "$dat" +%s`
+
+echo "" >> ${FINALDIR}/1_patch_artifact.log
+echo >> ${FINALDIR}/1_patch_artifact.log
+
+ diff_var=`expr ${curr_sec} - ${patch_in_sec}`
+
+                if [ ${diff_var} -gt 10520000  ];
+                then
+                echo " 1. Patching Information - NOT AS PER CIS STANDARDS.. Need Attention!! "  > ${FINALDIR}/CIS_Failure.log
+                                echo " 1. Patching Information - NOT AS PER CIS STANDARDS.. Need Attention!! "  >> ${FINALDIR}/1_patch_artifact.log
+                else
+                echo " 1. Patching Information - AS PER CIS STANDARDS." > ${FINALDIR}/CIS_Success.log
+                                echo " 1. Patching Information - AS PER CIS STANDARDS"  >> ${FINALDIR}/1_patch_artifact.log
+                fi
+
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+
+echo ""
+
+echo ""
+
+echo "*************************** End of this module 1.1 check....***************************" >> ${FINALDIR}/1_patch_artifact.log
+echo "*********************************************************************************" >>  ${FINALDIR}/1_patch_artifact.log
+}
+
+
+
+######################### 1.1 ENDS HERE ##############################################################
+
+
+REP_Fn_1_2_DEF_Pass(){
+
+${OHOME}/bin/sqlplus "/ as sysdba" @${REPSQLDIR}/1_2_Def_Pass.sql
+
+
+checker=`cat ${REPSQLDIR}/1_2_DEF_Sql.log | grep "no rows selected" | wc -l`
+
+cat ${REPSQLDIR}/1_2_DEF_Sql.log  >> ${FINALDIR}/1_2_DEF_Pass.log
+
+
+if [ ${checker} == 1 ];
+        then
+        echo ""  >>  ${FINALDIR}/1_2_DEF_Pass.log
+         echo " 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS" >>  ${FINALDIR}/CIS_Success.log
+            echo " 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS" >>  ${FINALDIR}/1_2_DEF_Pass.log
+        else
+        echo ""  >>  ${FINALDIR}/1_2_DEF_Pass.log
+
+        echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/CIS_Failure.log
+                echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/1_2_DEF_Pass.log
+        fi
+
+
+echo ""
+
+echo ""
+
+
+echo "" >> ${FINALDIR}/1_2_DEF_Pass.log
+echo "***************************End of this module 1.2 check....***************************" >> ${FINALDIR}/1_2_DEF_Pass.log
+
+
+echo "*********************************************************************************" >> ${FINALDIR}/1_2_DEF_Pass.log
+
+}
+
+######################### 1.2 ENDS HERE ##############################################################
+
+
+
+
+REP_Fn_1_3_DEF_SCHEM_DROP(){
+
+${OHOME}/bin/sqlplus "/ as sysdba" @${REPSQLDIR}/1_3_Def_Schem.sql
+
+
+checker=`cat ${REPSQLDIR}/1_3_DEF_Schem.log | grep "no rows selected" | wc -l`
+
+cat ${REPSQLDIR}/1_3_DEF_Schem.log  >> ${FINALDIR}/1_2_DEF_Pass.log
+
+
+if [ ${checker} == 1 ];
+        then
+        echo ""  >>  ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+         echo " 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS" >>  ${FINALDIR}/CIS_Success.log
+            echo " 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS" >>  ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+        else
+        echo ""  >>  ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+
+        echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/CIS_Failure.log
+                echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+        fi
+
+
+echo "" >> ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+
+
+echo ""
+
+
+
+echo ""
+
+echo "*************************** End of this module 1.3 check ***************************" >> ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+
+echo "*********************************************************************************" >> ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+
+}
+
+######################### 1.3 ENDS HERE ##############################################################
+
+REP_Fn_2_1_1_SECURE_LIST() {
+
+LIS_OWNER=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $1'}`
+
+LIS_NAME=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $9'}`
+
+${OHOME}/bin/lsnrctl status ${LIS}
+
+
+LIS_PART_HOME=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $8'} | awk '{ sub("/[^/]*$", ""); print }' | awk '{ sub("/[^/]*$", ""); print }'`
+LIS_LOCATION=${LIS_PART_HOME}/network/admin/listener.ora
+
+checker=`sudo grep "SECURE_CONTROL_${LIS_NAME}" ${LIS_LOCATION} | wc -l`
+
+echo ${checker} >> ${FINALDIR}/2_1_1_SECURE_LIST.log
+
+if [ ${checker} == 1 ];
+        then
+        echo ""  >>  ${FINALDIR}/2_1_1_SECURE_LIST.log
+         echo " 2.1.1 Ensure Secure Control Listener is Set  - AS PER CIS STANDARDS" >>  ${FINALDIR}/CIS_Success.log
+            echo " 2.1.1 Ensure Secure Control Listener is Set   - AS PER CIS STANDARDS" >>  ${FINALDIR}/2_1_1_SECURE_LIST.log
+        else
+        echo ""  >>  ${FINALDIR}/1_3_DEF_SCHEM_DROP.log
+
+        echo " 2.1.1 Ensure Secure Control Listener is Set   - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/CIS_Failure.log
+                echo " 2.1.1 Ensure Secure Control Listener is Set   - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/2_1_1_SECURE_LIST.log
+        fi
+
+
+echo "" >> ${FINALDIR}/2_1_1_SECURE_LIST.log
+
+echo ""
+
+echo ""
+
+
+echo " *************************** End of this module 2.1.1 check..***************************" >> ${FINALDIR}/2_1_1_SECURE_LIST.log
+
+echo ""
+
+echo "*******************************"
+
+
+
+}
+
+
+######################### 2.1.1 ENDS HERE ##############################################################
+
+Exec_Fn_1_HARDEN(){
+
+
+${OHOME}/bin/sqlplus "/ as sysdba"  @${SHELLDIR}/harden.sql
+
+
+  if [ -f ${HARDENDIR}/HARDEN_1_2_DEF_Sql.log ]
+  then
+  cat ${HARDENDIR}/HARDEN_1_2_DEF_Sql.log  > ${FINALDIR}/HARDENING_SQL.log
+  else
+  echo " Hardening not performed for Default users"
+  fi
+}
+
+
+Exec_fn_2_1_1_LIST_HARD(){
+
+LIS_OWNER=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $1'}`
+
+LIS_NAME=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $9'}`
+
+${OHOME}/bin/lsnrctl status ${LIS}
+
+
+LIS_PART_HOME=`ps -ef | grep tnslsnr  | grep -v grep | awk {'print $8'} | awk '{ sub("/[^/]*$", ""); print }' | awk '{ sub("/[^/]*$", ""); print }'`
+LIS_LOCATION=${LIS_PART_HOME}/network/admin/listener.ora
+
+ echo  "SECURE_CONTROL_${LIS_NAME}=TCPS" >> ${LIS_LOCATION}
+
+}
+
+
+consolidation() {
+
+printf "********************************************************************"
+echo  ""
+echo "Consolidated Success CIS report:  "
+cat ${FINALDIR}/CIS_Success.log
+
+echo ""
+printf "********************************************************************"
+echo ""
+echo "Consolidated Failure CIS report:  "
+
+ if [ -f  ${FINALDIR}/CIS_Failure.log ]
+        then
+        cat ${FINALDIR}/CIS_Failure.log
+        else
+        echo " No Failures..."
+fi
+
+echo ""
+
+printf "***************************************************************************************"
+
+
+cat ${FINALDIR}/1_patch_artifact.log > ${FINALDIR}/Final_OP.log
+cat ${FINALDIR}/1_2_DEF_Pass.log >> ${FINALDIR}/Final_OP.log
+cat ${FINALDIR}/1_3_DEF_SCHEM_DROP.log >> ${FINALDIR}/Final_OP.log
+cat ${FINALDIR}/2_1_1_SECURE_LIST.log >> ${FINALDIR}/Final_OP.log
+
+
+echo "*************************** Final Output ***************************"
+
+cat  ${FINALDIR}/Final_OP.log
+
+
+}
+
+
+
+
+fn_reporting(){
+
+        REP_Fn_1_patch_artifact
+        REP_Fn_1_2_DEF_Pass
+		REP_Fn_1_3_DEF_SCHEM_DROP
+		REP_Fn_2_1_1_SECURE_LIST
+        consolidation
+}
+
+fn_exec_hardening(){
+
+        Exec_Fn_1_HARDEN
+		Exec_fn_2_1_1_LIST_HARD
+}
+
+
+fn_exec_hardening
+fn_reporting
+

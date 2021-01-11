@@ -1,0 +1,12 @@
+CREATE USER ASM994 IDENTIFIED BY "Temp#123" DEFAULT TABLESPACE USER01 PASSWORD EXPIRE ACCOUNT UNLOCK
+*
+ERROR at line 1:
+ORA-00959: tablespace 'USER01' does not exist 
+
+
+grant connect,adb  to ASM994
+              *
+ERROR at line 1:
+ORA-01919: role 'ADB' does not exist 
+
+

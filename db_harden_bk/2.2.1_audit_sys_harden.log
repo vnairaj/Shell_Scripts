@@ -1,0 +1,6 @@
+SQL> 
+SQL> ALTER SYSTEM SET AUDIT_SYS_OPERATIONS = TRUE SCOPE=SPFILE;
+
+System altered.
+
+SQL> spool off

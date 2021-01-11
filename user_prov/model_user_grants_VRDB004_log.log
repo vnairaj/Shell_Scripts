@@ -1,0 +1,264 @@
+GRANT   ON EDITION "SYS"."ORA$BASE" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   ,DELETE ON TABLE "XDB"."XDB$TSETMAP" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   ALL ON TABLE "XDB"."X$PT46MP5MDR0M04NE0KWN0SK0K1LN" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$ACL" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$CHECKOUTS" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$CONFIG" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$D_LINK" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$H_INDEX" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$H_LINK" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$NLOCKS" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$RESCONFIG" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$RESOURCE" TO VRDB004
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   EXECUTE ON CONSUMER GROUP "SYS"."SYS_GROUP" TO VRDB004
+                            *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE  "SYS"."CHECK_UPGRADE" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   EXECUTE  "SYS"."LOGMNR_GET_GT_PROTOCOL" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_ALERT" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_AQ" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_AQADM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_AQELM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_AQ_IMPORT_INTERNAL" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_LOGMNR_INTERNAL" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_RULE_EXIMP" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_SYSTEM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_SYS_ERROR" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_TRANSFORM_EXIMP" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE "SYS"."LOGMNR_DICT_CACHE" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_ALERT" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_AQ" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_AQADM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_AQELM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_AQ_IMPORT_INTERNAL" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_LOGMNR_INTERNAL" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_RULE_EXIMP" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_SYSTEM" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_SYS_ERROR" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_TRANSFORM_EXIMP" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."LOGMNR_DICT_CACHE" TO VRDB004
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE  "SYS"."LOGMNR_GTLO3" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   SELECT  "SYS"."LOGMNR_GTCS_SUPPORT" TO VRDB004
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+

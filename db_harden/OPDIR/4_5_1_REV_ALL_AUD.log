@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE TABLE_NAME='AUD$'
+  4  AND GRANTEE NOT IN ('DELETE_CATALOG_ROLE');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.5.1 Ensure ALL Is Revoked from Unauthorized GRANTEE on AUD$ - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.5.1 check ***************************
+*********************************************************************************

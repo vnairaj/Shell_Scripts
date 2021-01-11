@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='RESOURCE_LIMIT';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+TRUE                                                                            
+
+SQL> spool off
+
+ 2.2.19 Ensure RESOURCE_LIMIT Is Set to TRUE - AS PER CIS STANDARDS 
+
+*************************** End of this module 2.2.19 check ***************************
+*********************************************************************************

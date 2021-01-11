@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='EXECUTE ANY PROCEDURE'
+  4  AND GRANTEE='OUTLN';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.9 Ensure EXECUTE ANY PROCEDURE Is Revoked from OUTLN  - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.9 check ***************************
+*********************************************************************************

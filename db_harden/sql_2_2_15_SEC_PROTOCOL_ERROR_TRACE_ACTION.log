@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET SEC_PROTOCOL_ERROR_TRACE_ACTION=LOG SCOPE = BOTH;
+
+System altered.
+
+SQL> 
+SQL> spool off

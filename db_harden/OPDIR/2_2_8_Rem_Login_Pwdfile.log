@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='REMOTE_LOGIN_PASSWORDFILE';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+NONE                                                                            
+
+SQL> 
+SQL> spool off
+
+2.2.8 Ensure REMOTE_LOGIN_PASSWORDFILE Is Set to NONE - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.8 check ***************************
+*********************************************************************************

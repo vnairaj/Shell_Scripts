@@ -1,0 +1,17 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='GRANT ANY ROLE'
+  4  AND GRANTEE NOT IN ('DBA','SYS','DATAPUMP_IMP_FULL_DATABASE','IMP_FULL_DATABASE',
+  5  'SPATIAL_WFS_ADMIN_USR','SPATIAL_CSW_ADMIN_USR',
+  6  'GSMADMIN_INTERNAL','DV_REALM_OWNER', 'EM_EXPRESS_ALL', 'DV_OWNER');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.11 Ensure GRANT ANY ROLE Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.11 check ***************************
+*********************************************************************************

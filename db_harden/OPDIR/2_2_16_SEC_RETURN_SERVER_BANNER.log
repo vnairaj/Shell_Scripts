@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='SEC_RETURN_SERVER_RELEASE_BANNER';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+FALSE                                                                           
+
+SQL> 
+SQL> spool off
+
+ 2.2.16 Ensure SEC_RETURN_SERVER_RELEASE_BANNER Is Set to FALSE - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.16 check ***************************
+*********************************************************************************

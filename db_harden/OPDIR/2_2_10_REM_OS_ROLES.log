@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='REMOTE_OS_ROLES';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+FALSE                                                                           
+
+SQL> 
+SQL> spool off
+
+2.2.9 Ensure REMOTE_OS_ROLES Is Set to FALSE - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.10 check ***************************
+*********************************************************************************

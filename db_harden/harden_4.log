@@ -1,0 +1,6 @@
+SQL> 
+SQL> prompt "****************** 4.1.1 Ensure 'EXECUTE' Is Revoked from 'PUBLIC' on 'DBMS_ADVISOR' ******************"
+"****************** 4.1.1 Ensure 'EXECUTE' Is Revoked from 'PUBLIC' on 'DBMS_ADVISOR' ******************"
+SQL> 
+SQL> set echo on
+SQL> spool /home/oracle/shell_scr/db_harden/sql_4_1_1_Rev_execute_DBMS_ADVISOR.log

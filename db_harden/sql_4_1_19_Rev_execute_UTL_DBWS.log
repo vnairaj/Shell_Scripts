@@ -1,0 +1,11 @@
+SQL> 
+SQL> 
+SQL> REVOKE EXECUTE ON UTL_DBWS FROM PUBLIC;
+REVOKE EXECUTE ON UTL_DBWS FROM PUBLIC
+                  *
+ERROR at line 1:
+ORA-04042: procedure, function, package, or package body does not exist 
+
+
+SQL> 
+SQL> spool off

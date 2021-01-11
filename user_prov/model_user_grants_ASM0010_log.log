@@ -1,0 +1,15 @@
+
+Grant succeeded.
+
+GRANT   EXECUTE ON  BODY "SYS"."DBMS_REDACT" TO ASM0010
+                         *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+

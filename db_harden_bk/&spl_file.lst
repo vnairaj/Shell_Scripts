@@ -1,0 +1,60 @@
+SQL> 
+SQL> Rem ******** List schemas and objects ********
+SQL> PROMPT
+
+SQL> PROMPT All user named objects owned by schema accounts
+All user named objects owned by schema accounts
+SQL> 
+SQL>  SELECT   owner, object_type, object_name, status
+  2   FROM     dba_objects
+  3   WHERE    owner in ('HR','OE','SH','PM','IX','BI')
+  4   AND      object_name NOT LIKE 'SYS%'
+  5   ORDER BY 1,2,3,4;
+SP2-0640: Not connected
+SQL> 
+SQL> 
+SQL> PROMPT
+
+SQL> PROMPT All SYS named objects owned by schema accounts
+All SYS named objects owned by schema accounts
+SQL> 
+SQL>  SELECT    owner, object_type, object_name, status
+  2   FROM     dba_objects
+  3   WHERE    owner in ('HR','OE','SH','PM','IX','BI')
+  4   AND      object_name LIKE 'SYS%'
+  5   ORDER BY 2,1,3;
+SP2-0640: Not connected
+SQL> 
+SQL> Rem ******** Drop Sample Schemas, cascade to objects ********
+SQL> PROMPT
+
+SQL> PROMPT Dropping Sample Schemas
+Dropping Sample Schemas
+SQL> 
+SQL> DROP USER hr CASCADE;
+SP2-0640: Not connected
+SQL> DROP USER oe CASCADE;
+SP2-0640: Not connected
+SQL> DROP USER pm CASCADE;
+SP2-0640: Not connected
+SQL> DROP USER ix CASCADE;
+SP2-0640: Not connected
+SQL> DROP USER sh CASCADE;
+SP2-0640: Not connected
+SQL> DROP USER bi CASCADE;
+SP2-0640: Not connected
+SQL> 
+SQL> 
+SQL> Rem ******** Verify that all Sample Schemas and objects have been dropped ********
+SQL> PROMPT
+
+SQL> PROMPT Verifying drop of Sample Schemas
+Verifying drop of Sample Schemas
+SQL> 
+SQL> SELECT   owner, object_type, object_name
+  2   FROM     dba_objects
+  3   WHERE    owner in ('HR','OE','SH','PM','IX','BI')
+  4   ORDER BY 1,2,3;
+SP2-0640: Not connected
+SQL> 
+SQL> SPOOL OFF

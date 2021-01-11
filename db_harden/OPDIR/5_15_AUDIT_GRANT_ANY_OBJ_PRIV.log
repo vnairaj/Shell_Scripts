@@ -1,0 +1,20 @@
+SQL> 
+SQL> SELECT PRIVILEGE, SUCCESS, FAILURE
+  2  FROM DBA_PRIV_AUDIT_OPTS
+  3  WHERE PRIVILEGE='GRANT ANY OBJECT PRIVILEGE'
+  4  AND USER_NAME IS NULL
+  5  AND PROXY_NAME IS NULL
+  6  AND SUCCESS = 'BY ACCESS'
+  7  AND FAILURE = 'BY ACCESS';
+
+PRIVILEGE                                SUCCESS    FAILURE                     
+---------------------------------------- ---------- ----------                  
+GRANT ANY OBJECT PRIVILEGE               BY ACCESS  BY ACCESS                   
+
+SQL> 
+SQL> spool off
+
+ 5.15 Enable GRANT ANY OBJECT PRIVILEGE Audit Option  - AS PER CIS STANDARDS 
+
+*************************** End of this module 5.15 check ***************************
+*********************************************************************************

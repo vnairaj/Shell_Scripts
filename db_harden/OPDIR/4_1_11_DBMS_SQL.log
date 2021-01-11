@@ -1,0 +1,18 @@
+SQL> 
+SQL> SELECT PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE GRANTEE='PUBLIC'
+  4  AND PRIVILEGE='EXECUTE'
+  5  AND TABLE_NAME='DBMS_SQL';
+
+PRIVILEGE                                                                       
+----------------------------------------                                        
+EXECUTE                                                                         
+
+SQL> 
+SQL> spool off
+
+ 4.1.11 Ensure EXECUTE Is not Revoked from PUBLIC on DBMS_SQL - AS PER Doc ID 1165830.1 
+
+*************************** End of this module 4.1.11 check ***************************
+*********************************************************************************

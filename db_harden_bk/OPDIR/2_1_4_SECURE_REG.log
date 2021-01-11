@@ -1,0 +1,4 @@
+
+ 2.1.4 Ensure Secure Registration is Set to TCP/IPC -  AS PER CIS STANDARDS
+ SECURE_REGISTER_LISTENER=IPC 
+ *************************** End of this module 2.1.1, 2.1.2, 2.1.3 and 2.1.4 check..***************************

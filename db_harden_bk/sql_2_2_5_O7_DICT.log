@@ -1,0 +1,11 @@
+"****************** 2.2.5 Ensure 'O7_DICTIONARY_ACCESSIBILITY' IS set to FALSE ******************"
+SQL> ALTER SYSTEM SET O7_DICTIONARY_ACCESSIBILITY=FALSE SCOPE = SPFILE;
+ALTER SYSTEM SET O7_DICTIONARY_ACCESSIBILITY=FALSE SCOPE = SPFILE
+                                                   *
+ERROR at line 1:
+ORA-02065: illegal option for ALTER SYSTEM
+
+
+SQL> 
+SQL> 
+SQL> spool off

@@ -1,0 +1,16 @@
+SQL> 
+SQL>  SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='AUDIT_TRAIL';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+DB, EXTENDED                                                                    
+
+SQL> 
+SQL> spool off
+
+2.2.2 Ensure AUDIT Trail is not set to NONE  - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.2 check ***************************
+*********************************************************************************

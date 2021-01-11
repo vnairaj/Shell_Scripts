@@ -1,0 +1,129 @@
+#!/bin/bash
+SHELLDIR=/home/oracle/shell_scr/db_harden
+FINALDIR=/home/oracle/shell_scr/db_harden/OPDIR
+mkdir  -p ${SHELLDIR}
+mkdir  -p ${FINALDIR}
+cat /etc/oratab | grep -v + | tail -1 | tr ":"  "\n" | head -1 > ${SHELLDIR}/DBNAME.out
+cat /etc/oratab | grep -v + | tail -1 | tr ":"  "\n" | head -2 | tail -1  > ${SHELLDIR}/OHOME.out
+
+rm -rf ${FINALDIR}/Final_OP.log
+
+DBNAME=`cat ${SHELLDIR}/DBNAME.out`
+OHOME=`cat ${SHELLDIR}/OHOME.out`
+
+clear
+echo "***************************************************************************************"
+echo "*                   DATABASE HARDENING AUTOMATIONION SCRIPT                         *"
+echo "*             ! This Script is to harden params in the Oracle Database as per CSI  !           *"
+echo "*                     Please proceed the information's below                          *"
+echo "*            No Intervention required                                             *"
+echo "***************************************************************************************"
+
+
+Fn_1_patch_artifact()
+{
+echo "****************************************************************************************" > ${FINALDIR}/1_patch_artifact.log
+echo ""
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+
+echo "  1. Patching Information "  >> ${FINALDIR}/1_patch_artifact.log
+${OHOME}/OPatch/opatch lsinventory | grep -A 34 "Local Machine Information"  >> ${FINALDIR}/1_patch_artifact.log
+
+patch_appl=`${OHOME}/OPatch/opatch lsinventory | grep applied | head -1`
+
+patch_in_sec=`echo ${patch_appl} | cut -d " " -f7,8,9`
+
+curr_sec=`date +%s`
+patch_in_sec=`date -d "$dat" +%s`
+
+ diff_var=`expr ${curr_sec} - ${patch_in_sec}`
+
+                if [ ${diff_var} -gt 10520000  ];
+                then
+                echo " 1. Patching Information - NOT AS PER CIS STANDARDS.. Need Attention!! "  > ${FINALDIR}/CIS_Failure.log
+                else
+                echo " 1. Patching Information - AS PER CIS STANDARDS." > ${FINALDIR}/CIS_Success.log
+                fi
+
+echo ""  >> ${FINALDIR}/1_patch_artifact.log
+echo "End of this module 1.1 check....****" >> ${FINALDIR}/1_patch_artifact.log
+echo "*********************************************************************************" >>  ${FINALDIR}/1_patch_artifact.log
+}
+
+
+Fn_1_2_DEF_Pass(){
+
+${OHOME}/bin/sqlplus -s "/ as sysdba" <<EOF
+
+spool ${FINALDIR}/1_2_DEF_Sql.log
+
+prompt "1.2 Ensure All Default Passwords are changed"
+SELECT USERNAME FROM DBA_USERS_WITH_DEFPWD WHERE USERNAME NOT LIKE '%XS$NULL%';
+spool off
+
+EOF
+
+
+checker=`cat ${FINALDIR}/1_2_DEF_Sql.log | grep "no rows selected" | wc -l`
+
+
+
+if [ ${checker} == 1 ];
+        then
+        echo ""  >>  ${FINALDIR}/1_2_DEF_Pass.log
+        echo " 1.2 Ensure All Default Passwords are changed - As per CIS standards" >>  ${FINALDIR}/CIS_Success.log
+		echo " 1.2 Ensure All Default Passwords are changed - As per CIS standards" >>  ${FINALDIR}/1_2_DEF_Pass.log
+        else
+        echo ""  >>  ${FINALDIR}/1_2_DEF_Pass.log
+
+        echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/CIS_Failure.log
+		echo " 1.2  Ensure All Default Passwords are changed - NOT AS PER CIS STANDARDS .. Need Attention" >>  ${FINALDIR}/1_2_DEF_Pass.log
+        fi
+
+cat ${FINALDIR}/1_2_DEF_Sql.log >> ${FINALDIR}/1_2_DEF_Pass.log
+echo "" >> ${FINALDIR}/1_2_DEF_Pass.log
+echo "End of this module 1.2 check....****" >> ${FINALDIR}/1_2_DEF_Pass.log
+
+echo "*********************************************************************************" >> ${FINALDIR}/1_2_DEF_Pass.log
+
+}
+
+
+consolidation() {
+
+
+printf "***************************************************************************************" 
+echo  ""
+echo "Success CIS:  "
+cat ${FINALDIR}/CIS_Success.log
+
+echo ""
+printf "***************************************************************************************"
+echo ""
+echo "Failure CIS: "
+cat ${FINALDIR}/CIS_Failure.log
+
+echo ""
+
+printf "***************************************************************************************"
+
+
+
+
+cat ${FINALDIR}/1_patch_artifact.log > ${FINALDIR}/Final_OP.log
+cat ${FINALDIR}/1_2_DEF_Pass.log >> ${FINALDIR}/Final_OP.log
+
+
+
+
+echo "Final Output"
+
+cat  ${FINALDIR}/Final_OP.log
+
+
+}
+
+Fn_1_patch_artifact
+Fn_1_2_DEF_Pass
+consolidation
+

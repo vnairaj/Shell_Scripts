@@ -1,0 +1,17 @@
+INTELLECTCARDS       OBJ                  EXECUTE ON PACKAGE "SYS"."DBMS_RLS"                                                                                                                           
+INTELLECTCARDS       OBJ                  EXECUTE ON PACKAGE BODY "SYS"."DBMS_RLS"                                                                                                                      
+INTELLECTCARDS       OBJ                  READ,ALL ON TABLE "SYS"."USER$"                                                                                                                               
+INTELLECTCARDS       OBJ                  SELECT ON VIEW "SYS"."V_$SESSION"                                                                                                                             
+INTELLECTCARDS       PRV                  CREATE ANY CONTEXT                                                                                                                                            
+INTELLECTCARDS       PRV                  CREATE ANY JOB                                                                                                                                                
+INTELLECTCARDS       PRV                  CREATE ANY SYNONYM                                                                                                                                            
+INTELLECTCARDS       PRV                  CREATE ANY VIEW                                                                                                                                               
+INTELLECTCARDS       PRV                  CREATE PUBLIC SYNONYM                                                                                                                                         
+INTELLECTCARDS       PRV                  DROP ANY CONTEXT                                                                                                                                              
+INTELLECTCARDS       PRV                  DROP PUBLIC SYNONYM                                                                                                                                           
+INTELLECTCARDS       PRV                  SELECT ANY TABLE                                                                                                                                              
+INTELLECTCARDS       ROL                  CONNECT                                                                                                                                                       
+INTELLECTCARDS       ROL                  RESOURCE                                                                                                                                                      
+
+14 rows selected.
+

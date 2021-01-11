@@ -1,0 +1,12 @@
+CREATE USER ASM006 IDENTIFIED BY "Temp#123" DEFAULT USERS  PASSWORD EXPIRE ACCOUNT UNLOCK
+                                                    *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command 
+
+
+grant connect to ASM006
+                 *
+ERROR at line 1:
+ORA-01917: user or role 'ASM006' does not exist 
+
+

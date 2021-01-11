@@ -1,0 +1,8 @@
+SQL> 
+SQL> SELECT USERNAME FROM ALL_USERS WHERE USERNAME IN ('BI','HR','IX','OE','PM','SCOTT','SH');
+
+no rows selected
+
+SQL> 
+SQL> 
+SQL> spool off

@@ -1,0 +1,10 @@
+SQL> 
+SQL> REVOKE EXECUTE ON DBMS_SYS_SQL FROM PUBLIC;
+REVOKE EXECUTE ON DBMS_SYS_SQL FROM PUBLIC
+*
+ERROR at line 1:
+ORA-01927: cannot REVOKE privileges you did not grant 
+
+
+SQL> 
+SQL> spool off

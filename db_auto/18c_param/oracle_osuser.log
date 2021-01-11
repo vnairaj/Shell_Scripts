@@ -1,0 +1,1 @@
+uid=1001(oracle) gid=1001(oinstall) groups=1001(oinstall),1002(dba)

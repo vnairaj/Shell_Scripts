@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT DROP ANY PROCEDURE;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

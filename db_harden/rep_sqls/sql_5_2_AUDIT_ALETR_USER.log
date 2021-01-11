@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT AUDIT_OPTION, SUCCESS, FAILURE
+  2  FROM DBA_STMT_AUDIT_OPTS
+  3  WHERE AUDIT_OPTION='ALTER USER'
+  4  AND USER_NAME IS NULL
+  5  AND PROXY_NAME IS NULL
+  6  AND SUCCESS = 'BY ACCESS'
+  7  AND FAILURE = 'BY ACCESS';
+
+AUDIT_OPTION                             SUCCESS    FAILURE                     
+---------------------------------------- ---------- ----------                  
+ALTER USER                               BY ACCESS  BY ACCESS                   
+
+SQL> 
+SQL> spool off

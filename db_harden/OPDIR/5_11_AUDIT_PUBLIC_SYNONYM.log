@@ -1,0 +1,20 @@
+SQL> 
+SQL> SELECT AUDIT_OPTION, SUCCESS, FAILURE
+  2  FROM DBA_STMT_AUDIT_OPTS
+  3  WHERE AUDIT_OPTION='PUBLIC SYNONYM'
+  4  AND USER_NAME IS NULL
+  5  AND PROXY_NAME IS NULL
+  6  AND SUCCESS = 'BY ACCESS'
+  7  AND FAILURE = 'BY ACCESS';
+
+AUDIT_OPTION                             SUCCESS    FAILURE                     
+---------------------------------------- ---------- ----------                  
+PUBLIC SYNONYM                           BY ACCESS  BY ACCESS                   
+
+SQL> 
+SQL> spool off
+
+ 5.11 Enable PUBLIC SYNONYM Audit Option  - AS PER CIS STANDARDS 
+
+*************************** End of this module 5.11 check ***************************
+*********************************************************************************

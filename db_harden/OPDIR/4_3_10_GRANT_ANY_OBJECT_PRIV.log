@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='GRANT ANY OBJECT PRIVILEGE'
+  4  AND GRANTEE NOT IN ('DBA','SYS','IMP_FULL_DATABASE','DATAPUMP_IMP_FULL_DATABASE',
+  5  'EM_EXPRESS_ALL', 'DV_REALM_OWNER');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.10 Ensure GRANT ANY OBJECT PRIVILEGE Is Revoked from GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.10 check ***************************
+*********************************************************************************

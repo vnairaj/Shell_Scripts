@@ -1,0 +1,13 @@
+SQL> 
+SQL> SELECT USERNAME FROM ALL_USERS WHERE USERNAME IN ('BI','HR','IX','OE','PM','SCOTT','SH');
+
+no rows selected
+
+SQL> 
+SQL> 
+SQL> spool off
+
+ 1.3 Ensure All Default schemas are dropped  - AS PER CIS STANDARDS
+
+*************************** End of this module 1.3 check ***************************
+*********************************************************************************

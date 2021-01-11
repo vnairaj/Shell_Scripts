@@ -1,0 +1,23 @@
+#!/bin/bash
+
+printf "****************************************************************"
+printf "*                                                               *"
+printf "*   						DB Installation                     *"
+printf "*                                                               *"
+printf "****************************************************************"
+
+printf "Enter the Version you wanted to install 11g | 12c  - "
+read dbversion
+
+case $dbversion in
+
+	"11g") echo "Hi You have selected 11g "
+			echo "Testing statements"
+	;;
+	"12c") echo "Hi You have selected 12c"
+			echo "Testing statements"
+	;;
+	"*") "Invalid Choice... Try again!!"
+esac
+
+

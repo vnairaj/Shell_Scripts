@@ -1,0 +1,18 @@
+GRANT   EXECUTE ON PACKAGE "SYS"."DBMS_REDACT" TO ASM0005
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+GRANT   EXECUTE ON PACKAGE BODY "SYS"."DBMS_REDACT" TO ASM0005
+                           *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+

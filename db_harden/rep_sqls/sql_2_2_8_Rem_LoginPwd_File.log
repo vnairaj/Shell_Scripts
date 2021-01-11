@@ -1,0 +1,11 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='REMOTE_LOGIN_PASSWORDFILE';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+NONE                                                                            
+
+SQL> 
+SQL> spool off

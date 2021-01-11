@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET REMOTE_OS_ROLES = FALSE SCOPE = SPFILE;
+
+System altered.
+
+SQL> 
+SQL> spool off

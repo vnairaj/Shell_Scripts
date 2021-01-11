@@ -1,0 +1,5 @@
+SQL> ALTER SYSTEM SET LOCAL_LISTENER='	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=vr-mig-01)(PORT=1521)))';
+
+System altered.
+
+SQL> spool off

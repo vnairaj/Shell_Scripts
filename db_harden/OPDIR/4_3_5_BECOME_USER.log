@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='BECOME USER'
+  4  AND GRANTEE NOT IN ('DBA','SYS','IMP_FULL_DATABASE');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.5 Ensure BECOME USER Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.5 check ***************************
+*********************************************************************************

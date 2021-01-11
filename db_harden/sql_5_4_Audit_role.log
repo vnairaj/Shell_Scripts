@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT ROLE;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

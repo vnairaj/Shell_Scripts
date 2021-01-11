@@ -1,0 +1,39 @@
+VINAY                          ALTER                                                                                                                                                                    
+VINAY                          DELETE                                                                                                                                                                   
+VINAY                          INDEX                                                                                                                                                                    
+VINAY                          INSERT                                                                                                                                                                   
+VINAY                          SELECT                                                                                                                                                                   
+VINAY                          UPDATE                                                                                                                                                                   
+VINAY                          REFERENCES                                                                                                                                                               
+VINAY                          READ                                                                                                                                                                     
+VINAY                          ON COMMIT REFRESH                                                                                                                                                        
+VINAY                          QUERY REWRITE                                                                                                                                                            
+VINAY                          DEBUG                                                                                                                                                                    
+VINAY                          FLASHBACK                                                                                                                                                                
+INTELLECTCARDS                 ALTER                                                                                                                                                                    
+INTELLECTCARDS                 DELETE                                                                                                                                                                   
+INTELLECTCARDS                 INDEX                                                                                                                                                                    
+INTELLECTCARDS                 INSERT                                                                                                                                                                   
+INTELLECTCARDS                 SELECT                                                                                                                                                                   
+INTELLECTCARDS                 UPDATE                                                                                                                                                                   
+INTELLECTCARDS                 REFERENCES                                                                                                                                                               
+INTELLECTCARDS                 READ                                                                                                                                                                     
+INTELLECTCARDS                 ON COMMIT REFRESH                                                                                                                                                        
+INTELLECTCARDS                 QUERY REWRITE                                                                                                                                                            
+INTELLECTCARDS                 DEBUG                                                                                                                                                                    
+INTELLECTCARDS                 FLASHBACK                                                                                                                                                                
+CARDS_FIN                      ALTER                                                                                                                                                                    
+CARDS_FIN                      DELETE                                                                                                                                                                   
+CARDS_FIN                      INDEX                                                                                                                                                                    
+CARDS_FIN                      INSERT                                                                                                                                                                   
+CARDS_FIN                      SELECT                                                                                                                                                                   
+CARDS_FIN                      UPDATE                                                                                                                                                                   
+CARDS_FIN                      REFERENCES                                                                                                                                                               
+CARDS_FIN                      READ                                                                                                                                                                     
+CARDS_FIN                      ON COMMIT REFRESH                                                                                                                                                        
+CARDS_FIN                      QUERY REWRITE                                                                                                                                                            
+CARDS_FIN                      DEBUG                                                                                                                                                                    
+CARDS_FIN                      FLASHBACK                                                                                                                                                                
+
+36 rows selected.
+

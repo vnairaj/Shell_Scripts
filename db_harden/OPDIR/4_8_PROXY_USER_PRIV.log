@@ -1,0 +1,19 @@
+SQL> 
+SQL> SELECT GRANTEE, GRANTED_ROLE
+  2  FROM DBA_ROLE_PRIVS
+  3  WHERE GRANTEE IN
+  4  (
+  5  SELECT PROXY
+  6  FROM DBA_PROXIES
+  7  )
+  8  AND GRANTED_ROLE NOT IN ('CONNECT');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.8 Ensure Proxy Users Have Only CONNECT Privilege  - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.8 check ***************************
+*********************************************************************************

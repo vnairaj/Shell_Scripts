@@ -1,0 +1,9 @@
+SQL> DROP USER SCOTT CASCADE;
+DROP USER SCOTT CASCADE
+          *
+ERROR at line 1:
+ORA-01918: user 'SCOTT' does not exist
+
+
+SQL> set echo off
+"******************  END OF Ensure All Sample Data And Users Have Been Removed ******************"

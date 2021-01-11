@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET SEC_CASE_SENSITIVE_LOGON = TRUE SCOPE = SPFILE;
+
+System altered.
+
+SQL> 
+SQL> spool off

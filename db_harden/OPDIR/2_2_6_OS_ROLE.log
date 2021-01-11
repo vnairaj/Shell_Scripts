@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='OS_ROLES';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+FALSE                                                                           
+
+SQL> 
+SQL> spool off
+
+ 2.2.6 Ensure OS_ROLES Is Set to FALSE - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.6 check ***************************
+*********************************************************************************

@@ -1,0 +1,8 @@
+ORACLE_HOSTNAME=vr-mig-01.localdomain; export ORACLE_HOSTNAME
+ORACLE_BASE=/u01/app/oracle; export ORACLE_BASE
+DB_HOME=$ORACLE_BASE/product/19.3.0/db_1; export DB_HOME
+ORACLE_HOME=$DB_HOME; export ORACLE_HOME
+ORACLE_SID=VRDB; export ORACLE_SID
+BASE_PATH=/usr/sbin:$PATH; export BASE_PATH
+PATH=$ORACLE_HOME/bin:$BASE_PATH; export PATH
+

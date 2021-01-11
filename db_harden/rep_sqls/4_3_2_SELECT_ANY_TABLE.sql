@@ -1,0 +1,15 @@
+spool /home/oracle/shell_scr/db_harden/rep_sqls/sql_4_3_2_SELECT_ANY_TABLE.log
+
+set echo on
+
+SELECT GRANTEE, PRIVILEGE
+FROM DBA_SYS_PRIVS
+WHERE PRIVILEGE='SELECT ANY TABLE'
+AND GRANTEE NOT IN ('DBA', 'MDSYS', 'SYS', 'IMP_FULL_DATABASE', 'EXP_FULL_DATABASE',
+'DATAPUMP_IMP_FULL_DATABASE', 'WMSYS', 'SYSTEM','OLAP_DBA',
+'DV_REALM_OWNER');
+
+spool off
+set echo off
+
+exit; 

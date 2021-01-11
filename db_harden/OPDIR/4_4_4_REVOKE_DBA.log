@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, GRANTED_ROLE
+  2  FROM DBA_ROLE_PRIVS
+  3  WHERE GRANTED_ROLE='DBA'
+  4  AND GRANTEE NOT IN ('SYS','SYSTEM');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.4.4 Ensure DBA Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.4.4 check ***************************
+*********************************************************************************

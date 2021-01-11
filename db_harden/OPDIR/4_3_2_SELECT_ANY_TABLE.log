@@ -1,0 +1,17 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='SELECT ANY TABLE'
+  4  AND GRANTEE NOT IN ('DBA', 'MDSYS', 'SYS', 'IMP_FULL_DATABASE', 'EXP_FULL_DATABASE',
+  5  'DATAPUMP_IMP_FULL_DATABASE', 'WMSYS', 'SYSTEM','OLAP_DBA',
+  6  'DV_REALM_OWNER');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.2 Ensure SELECT ANY TABLE Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.2 check ***************************
+*********************************************************************************

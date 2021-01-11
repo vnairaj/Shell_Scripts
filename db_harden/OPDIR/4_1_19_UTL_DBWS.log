@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE GRANTEE='PUBLIC'
+  4  AND PRIVILEGE='EXECUTE'
+  5  AND TABLE_NAME='UTL_DBWS';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.1.19 Ensure EXECUTE Is Revoked from PUBLIC on UTL_DBWS - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.1.19 check ***************************
+*********************************************************************************

@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT ALTER SYSTEM;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

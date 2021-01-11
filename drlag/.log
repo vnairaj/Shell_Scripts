@@ -1,0 +1,7 @@
+ select to_char(scn_to_timestamp(),'DD-MM-YYYY HH24:MI:SS')  as timestamp from dual
+                *
+ERROR at line 1:
+ORA-06553: PLS-306: wrong number or types of arguments in call to 
+'SCN_TO_TIMESTAMP' 
+
+

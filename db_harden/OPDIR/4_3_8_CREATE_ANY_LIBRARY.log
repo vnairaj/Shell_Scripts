@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='CREATE ANY LIBRARY'
+  4  AND GRANTEE NOT IN ('SYS','SYSTEM','DBA','IMP_FULL_DATABASE');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.8 Ensure CREATE ANY LIBRARY Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.8 check ***************************
+*********************************************************************************

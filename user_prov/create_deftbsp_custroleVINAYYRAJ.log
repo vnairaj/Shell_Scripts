@@ -1,0 +1,9 @@
+
+User created.
+
+grant connect,ROLE1  to VINAYYRAJ
+              *
+ERROR at line 1:
+ORA-01919: role 'ROLE1' does not exist 
+
+

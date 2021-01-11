@@ -1,0 +1,29 @@
+
+
+
+
+set heading on
+spool /home/oracle/shell_scr/db_harden/harden.log 
+set echo on 
+
+prompt "****************** 1.2 Change the Passwords of all default users ******************"
+
+begin
+for r_user in
+(select username from dba_users_with_defpwd where username not like '%XS$NULL%')
+loop
+DBMS_OUTPUT.PUT_LINE('Password for user '||r_user.username||' will be changed.');
+execute immediate 'alter user "'||r_user.username||'" identified by
+"'||DBMS_RANDOM.string('a',16)||'"account lock password expire';
+end loop;
+end;
+/
+
+set echo off
+prompt "******************  END OF 1.2 Change the Passwords of all default users ******************"
+
+spool off
+
+exit;
+
+

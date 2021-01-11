@@ -1,0 +1,10 @@
+SQL> 
+SQL> REVOKE EXECUTE ANY PROCEDURE FROM DBSNMP;
+REVOKE EXECUTE ANY PROCEDURE FROM DBSNMP
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'DBSNMP' 
+
+
+SQL> 
+SQL> spool off

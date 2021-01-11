@@ -1,0 +1,11 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='LOCAL_LISTENER';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+                                                                                
+
+SQL> 
+SQL> spool off

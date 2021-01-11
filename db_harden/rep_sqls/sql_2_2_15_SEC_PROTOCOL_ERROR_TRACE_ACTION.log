@@ -1,0 +1,11 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='SEC_PROTOCOL_ERROR_TRACE_ACTION';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+LOG                                                                             
+
+SQL> 
+SQL> spool off

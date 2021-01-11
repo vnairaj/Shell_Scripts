@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER PROFILE DEFAULT LIMIT SESSIONS_PER_USER 10;
+
+Profile altered.
+
+SQL> 
+SQL> spool off

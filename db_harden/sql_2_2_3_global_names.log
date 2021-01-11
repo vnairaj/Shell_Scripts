@@ -1,0 +1,7 @@
+SQL> 
+SQL> ALTER SYSTEM SET GLOBAL_NAMES = TRUE SCOPE = SPFILE;
+
+System altered.
+
+SQL> 
+SQL> spool off

@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT DATABASE LINK;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

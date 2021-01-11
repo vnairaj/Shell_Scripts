@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET "_trace_files_public" = FALSE SCOPE = SPFILE;
+
+System altered.
+
+SQL> 
+SQL> spool off

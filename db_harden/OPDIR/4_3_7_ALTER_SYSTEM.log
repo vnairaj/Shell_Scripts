@@ -1,0 +1,17 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='ALTER SYSTEM'
+  4  AND GRANTEE NOT IN ('SYS','SYSTEM','APEX_030200','APEX_040000',
+  5  'APEX_040100','APEX_040200','DBA','EM_EXPRESS_ALL','SYSBACKUP','GSMADMIN_ROLE',
+  6  'GSM_INTERNAL','SYSDG','GSMADMIN_INTERNAL');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.7 Ensure ALTER SYSTEM Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.7 check ***************************
+*********************************************************************************

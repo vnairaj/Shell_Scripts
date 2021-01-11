@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT OWNER, TABLE_NAME
+  2  FROM ALL_TABLES
+  3  WHERE OWNER='SYS'
+  4  AND TABLE_NAME='USER$MIG';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.5.7 Ensure SYS.USER Has Been Dropped  - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.5.7 check ***************************
+*********************************************************************************

@@ -1,0 +1,11 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET SEC_MAX_FAILED_LOGIN_ATTEMPTS ='10' SCOPE = SPFILE;
+ALTER SYSTEM SET SEC_MAX_FAILED_LOGIN_ATTEMPTS ='10' SCOPE = SPFILE
+                                                *
+ERROR at line 1:
+ORA-02017: integer value required
+
+
+SQL> 
+SQL> spool off

@@ -1,0 +1,47 @@
+SHELLDIR=/home/oracle/shell_scr/user_prov
+mkdir  -p ${SHELLDIR}
+grep '=$' $ORACLE_HOME/network/admin/tnsnames.ora | grep ^[A-Z] | tr "=" "\t" | grep -Evi   'st|dr|dg' | head -1 > $SHELLDIR/INPFILE.out
+pass=`cat /home/oracle/shell_scr/.pass`
+
+
+
+clear
+echo "***************************************************************************************"
+echo "* 	       	  DATABASE USER CREATION AUTOMATIONION SCRIPT                         *"
+echo "*             ! This Script is to create new user in the Oracle Database  !           *"
+echo "*      		    Please proceed the information's below                            *"
+echo "***************************************************************************************"
+
+
+echo " Below are the list of tns entries : "
+cat $SHELLDIR/INPFILE.out
+
+
+printf "Select the DB TNS for creating the user : "
+read dbtns
+
+printf "Provide the username to be created in DB (UPPER CASE ONLY): "
+read usrnm
+
+printf "Provide the username to be modelled (If none - press enter ) :"
+read modlusr
+
+printf "Provide the tablespace name in specific if any (If none - press enter) :"
+
+
+sqlplus -s "sys/${pass}@${dbtns} as sysdba" <<EOF >/dev/null 2>&1
+
+set pages 0
+set head off
+set lines 200
+col username for a40
+set wrap off
+spool $SHELLDIR/user_info.log 
+select username from dba_users where username='${usrnm}';
+
+spool off
+EOF
+
+
+
+

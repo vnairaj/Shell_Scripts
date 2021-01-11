@@ -1,0 +1,8 @@
+
+PL/SQL procedure successfully completed.
+
+SQL> ALTER SYSTEM SET LOCAL_LISTENER='';
+
+System altered.
+
+SQL> spool off

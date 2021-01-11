@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='SEC_PROTOCOL_ERROR_FURTHER_ACTION';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+DROP,3                                                                          
+
+SQL> 
+SQL> spool off
+
+ 2.2.14 Ensure SEC_PROTOCOL_ERROR_FURTHER_ACTION Is Set to (DELAY,3) or (DROP,3) - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.14 check ***************************
+*********************************************************************************

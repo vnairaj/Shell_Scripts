@@ -1,0 +1,6 @@
+ 2.2.4 Ensure Local Listener is set to appropriate value   - NOT AS PER CIS STANDARDS .. Need Attention
+ 2.2.7 Ensure O7_DICTIONARY_ACCESSIBILITY Is Set to FALSE   - NOT AS PER CIS STANDARDS .. Need Attention
+ 2.2.13 Ensure SEC_MAX_FAILED_LOGIN_ATTEMPTS Is Set to 10   - NOT AS PER CIS STANDARDS .. Need Attention
+ 3.10 Ensure No Users Are Assigned the DEFAULT Profile  - NOT AS PER CIS STANDARDS  - Need Attention
+ 4.5.4 Ensure ALL Is Revoked from Unauthorized GRANTEE on SYS.USER$ - NOT AS PER CIS STANDARDS  - Need Attention
+ 4.5.5 Ensure ALL Is Revoked from Unauthorized GRANTEE on DBA_%  - NOT AS PER CIS STANDARDS  - Need Attention

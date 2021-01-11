@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='SELECT ANY DICTIONARY'
+  4  AND GRANTEE NOT IN ('DBA','DBSNMP','OEM_MONITOR',
+  5  'OLAPSYS','ORACLE_OCM','SYSMAN','WMSYS');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.1 Ensure SELECT_ANY_DICTIONARY Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.1 check ***************************
+*********************************************************************************

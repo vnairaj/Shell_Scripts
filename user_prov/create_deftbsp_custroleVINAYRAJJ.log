@@ -1,0 +1,9 @@
+
+User created.
+
+grant connect,FAULT  to VINAYRAJJ
+              *
+ERROR at line 1:
+ORA-01919: role 'FAULT' does not exist 
+
+

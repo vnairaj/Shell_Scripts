@@ -1,0 +1,6 @@
+GRANT   selected TO VINAY004
+        *
+ERROR at line 1:
+ORA-01919: role 'SELECTED' does not exist 
+
+

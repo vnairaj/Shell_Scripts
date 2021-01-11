@@ -1,0 +1,8 @@
+SQL> 
+SQL> 
+SQL> ALTER SYSTEM SET AUDIT_TRAIL =DB,EXTENDED SCOPE = SPFILE;
+
+System altered.
+
+SQL> 
+SQL> spool off

@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT DROP PROFILE;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

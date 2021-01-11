@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT SYNONYM;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

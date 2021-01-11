@@ -1,0 +1,186 @@
+GRANT   ON EDITION "SYS"."ORA$BASE" TO VRDB006
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   ,DELETE ON TABLE "XDB"."XDB$TSETMAP" TO VRDB006
+        *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+GRANT   ALL ON TABLE "XDB"."X$PT46MP5MDR0M04NE0KWN0SK0K1LN" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$ACL" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$CHECKOUTS" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$CONFIG" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$D_LINK" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$H_INDEX" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$H_LINK" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$NLOCKS" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$RESCONFIG" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   ALL ON TABLE "XDB"."XDB$RESOURCE" TO VRDB006
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+GRANT   EXECUTE ON CONSUMER GROUP "SYS"."SYS_GROUP" TO VRDB006
+                            *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+

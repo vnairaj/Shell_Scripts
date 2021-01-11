@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, GRANTED_ROLE
+  2  FROM DBA_ROLE_PRIVS
+  3  WHERE granted_role='EXECUTE_CATALOG_ROLE'
+  4  AND grantee not in ('DBA','SYS','IMP_FULL_DATABASE','EXP_FULL_DATABASE');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.4.3 Ensure EXECUTE_CATALOG_ROLE Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.4.3 check ***************************
+*********************************************************************************

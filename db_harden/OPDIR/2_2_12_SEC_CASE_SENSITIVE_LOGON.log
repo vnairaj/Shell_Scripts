@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='SEC_CASE_SENSITIVE_LOGON';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+TRUE                                                                            
+
+SQL> 
+SQL> spool off
+
+ 2.2.12 Ensure SEC_CASE_SENSITIVE_LOGON Is Set to TRUE - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.12 check ***************************
+*********************************************************************************

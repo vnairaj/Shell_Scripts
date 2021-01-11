@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='SEC_MAX_FAILED_LOGIN_ATTEMPTS';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+3                                                                               
+
+SQL> 
+SQL> spool off
+
+ 2.2.13 Ensure SEC_MAX_FAILED_LOGIN_ATTEMPTS Is Set to 10  - NOT AS PER CIS STANDARDS .. Need Attention
+
+*************************** End of this module 2.2.13 check ***************************
+*********************************************************************************

@@ -1,0 +1,12 @@
+CREATE USER VINAY2204 IDENTIFIED BY "Temp#123" DEFAULT TABLESPACE FAULROLE PASSWORD EXPIRE ACCOUNT UNLOCK
+*
+ERROR at line 1:
+ORA-00959: tablespace 'FAULROLE' does not exist 
+
+
+grant connect to VINAY2204
+                 *
+ERROR at line 1:
+ORA-01917: user or role 'VINAY2204' does not exist 
+
+

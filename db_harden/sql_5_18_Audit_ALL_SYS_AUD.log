@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT ALL ON SYS.AUD$ BY ACCESS;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

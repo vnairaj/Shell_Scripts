@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT UPPER(VALUE)
+  2  FROM V$PARAMETER
+  3  WHERE UPPER(NAME)='LOCAL_LISTENER';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+                                                                                
+
+SQL> 
+SQL> spool off
+
+ 2.2.4 Ensure Local Listener is set to appropriate value   - NOT AS PER CIS STANDARDS .. Need Attention
+
+*************************** End of this module 2.2.4 check ***************************
+*********************************************************************************

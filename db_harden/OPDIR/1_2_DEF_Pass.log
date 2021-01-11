@@ -1,0 +1,10 @@
+SQL> SELECT USERNAME FROM DBA_USERS_WITH_DEFPWD WHERE USERNAME NOT LIKE '%XS$NULL%';
+
+no rows selected
+
+SQL> spool off
+
+ 1.2 Ensure All Default Passwords are changed - AS PER CIS STANDARDS
+
+***************************End of this module 1.2 check....***************************
+*********************************************************************************

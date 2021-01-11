@@ -1,0 +1,342 @@
+
+#!/bin/bash
+clear
+echo "****************************************************************"
+echo "*                                                               *"
+echo "*             AUTOMATED     DB Installation                     *"
+echo "*                                                               *"
+echo "****************************************************************"
+
+echo ""
+
+echo " Please select "Y" Only if below requirements are met: "
+echo " 1 - Running this script using root user ?"
+echo " 2 - Internet enabled on this server ?"
+echo " 3 - Downloaded the software already ?"
+echo " 4 - Make sure there are no other files except DB Zip file in the location with oracle:oinstall permissions ?"
+echo ""
+printf " ENTER [Y] if all the requirements are met, else Enter [N], Enter [Y]/[N]: "
+
+read down_soft
+
+
+if [ $down_soft = 'Y' ];
+then
+
+echo ""
+echo "Thanks for Downloading the software, please keep the software in an accesible location by Oracle user"
+echo "Also have the location with you as we will require it while execution"
+sleep 5
+
+SHELLDIR=/home/oracle/shell_scr/db_auto
+DIR12c=/home/oracle/shell_scr/db_auto/12c_param
+pre_req_12c(){
+                echo ""
+                echo "Proceeding with YUM installation of 12c rpms"
+                echo ""
+                sh ${DIR12c}/yum_cmd.sh >> ${DIR12c}/yum.log
+                echo ""
+                        if [ -f ${DIR12c}/yum.log ];
+                        then
+                        echo ""
+                        echo "Below is the YUM output"
+                        cat ${DIR12c}/yum.log
+                        rm ${DIR12c}/yum.log
+                        echo ""
+                        sleep 2
+                        else
+
+                        echo "YUM execution was not successful, cannot proceed further!"
+                        exit
+
+                        fi
+
+
+                echo ""
+                echo "**********SYSCTL CONF Parameters Updated**********"
+                echo ""
+                cat ${DIR12c}/sysctl_param.par > /etc/sysctl.d/98-oracle.conf
+                /sbin/sysctl -p /etc/sysctl.d/98-oracle.conf
+
+
+                echo ""
+                echo ""
+                sleep 3
+                echo "**********SECURITY LIMITS CONF Parameters Settings**********"
+                echo ""
+                cat ${DIR12c}/security_limits.par > /etc/security/limits.d/oracle-database-server-12cR2-preinstall.conf
+                cat /etc/security/limits.d/oracle-database-server-12cR2-preinstall.conf
+                echo ""
+                echo ""
+                sleep 3
+
+}
+
+user_group_add(){
+                echo "**********Group Additions**********"
+                echo ""
+                groupadd oinstall
+                groupadd dba
+                groupadd oper
+                echo ""
+                echo "**********User Addition**********"
+                echo ""
+                useradd oracle
+                usermod -g oinstall -G dba oracle
+
+                echo "**********Role of OS User - Oracle**********"
+                id oracle > ${DIR12c}/oracle_osuser.log
+                cat ${DIR12c}/oracle_osuser.log
+                echo ""
+}
+
+bashprof_set(){
+                                echo "**********Bash Settings**********"
+                                cp /home/oracle/.bash_profile /home/oracle/.bash_profile_$(date '+%d%m%Y')
+                                #echo "ORACLE_BASE=${orabase}" > $SHELLDIR/setenv.sh
+                                #echo "ORACLE_HOME=${orahome}" >> $SHELLDIR/setenv.sh
+                                #echo "\$PATH=\$ORACLE_HOME/bin:\$PATH" >> $SHELLDIR/setenv.sh
+                                 echo "/home/oracle/shell_scr/db_auto/setenv.sh"  >> /home/oracle/.bash_profile
+                                chown -R oracle:oinstall /home/oracle/.bash_profile
+                                #chown -R oracle:oinstall /home/oracle/shell_scr/db_auto/setenv.sh
+                                tail -20 /home/oracle/.bash_profile
+}
+
+ora_unzip (){
+				echo "Actual Installation using oracle user begins here..."
+				printf "Enter the exact location of Oracle DB zipfile - "
+				orahost=`hostname`
+				read down_loc
+				#unzip -q  ${down_loc}/*zip  -d ${down_loc}  
+				echo ""
+				echo ""**********Unzip completed  "**********"
+			
+				chown -R oracle:oinstall ${down_loc} 
+				sleep 2
+			echo ""
+			echo ""
+			echo "Working on runinstaller" 
+
+				su - oracle -c  "${down_loc}/database/runInstaller -silent -ignoreSysPrereqs -ignorePrereq -waitforcompletion -showProgress  -responseFile ${down_loc}/database/response/db_install.rsp ORACLE_HOSTNAME=${orahost} UNIX_GROUP_NAME=oinstall INVENTORY_LOCATION=${orainv} SELECTED_LANGUAGES=en,en_GB ORACLE_HOME=$orahome ORACLE_BASE=${orabase} oracle.install.db.InstallEdition=${orainstaller}  oracle.install.db.OSDBA_GROUP=dba oracle.install.db.OSBACKUPDBA_GROUP=dba    oracle.install.db.OSDGDBA_GROUP=dba  oracle.install.db.OSKMDBA_GROUP=dba      oracle.install.db.OSRACDBA_GROUP=dba    SECURITY_UPDATES_VIA_MYORACLESUPPORT=false  DECLINE_SECURITY_UPDATES=true oracle.install.option=INSTALL_DB_SWONLY "
+
+ echo ********************* Script Execution Complete ***************************
+
+				
+}
+
+
+
+
+printf  "Enter the Version you wanted to install 11g | 12c  - "
+read dbversion
+case $dbversion in
+
+        "11g" | "11G") echo "Hi You have selected 11g "
+                        echo "Testing statements"
+        ;;
+        "12c" | "12C" ) echo "Select the subversion you want to install"
+                                                echo " [1] DB - 12.1.0.2"
+                                                echo " [2] DB - 12.2.0.1"
+                                                printf "Enter Your Choice [1] or [2]:"
+                                                read choice
+                                                                                                printf "Do you want to go for default installation (Recommended/Default - Y), Your choice [Y]/[N]:"
+                                                                                                read inst_type
+
+                                                                                                if [ $inst_type = 'N' ];
+                                                                                                then
+                                                case $choice in
+                                                         "1") echo ""
+                                                                        echo "You have Chose Option - 1: 12.1.0.2"
+                                                                        echo "Going forward if you hit enter with no values will be treated as default setting"
+                                                                        echo ""
+                                                                        printf "ORACLE_BASE LOCATION (default loc - /u01/app/oracle) : "
+                                                                        read orabase
+                                                                        if [ -z $orabase ];
+                                                                        then
+                                                                                orabase="/u01/app/oracle"
+                                                                                echo " Your Oracle base is set to default value -  ${orabase}"
+                                                                        else
+                                                                                echo "ORACLE BASE value is set to ${orabase}"
+
+                                                                        echo ""
+                                                                        fi
+                                                                        printf "ORACLE_HOME LOCATION (default loc - /u01/app/oracle/product/12.1.0.2/db_1) "
+                                                                        read orahome
+                                                                        echo ""
+                                                                            if [ -z $orahome ];
+                                                                        then
+                                                                                orahome="/u01/app/oracle/product/12.1.0.2/db_1"
+                                                                                echo " Your Oracle base is set to default value -  ${orahome}"
+                                                                                mkdir -p  ${orahome}
+                                                                                chown -R oracle:oinstall ${orahome}
+                                                                                echo "Directory has been created and ownership is changed"
+                                                                        else
+                                                                                echo "ORACLE Home value is set to ${orahome}"
+                                                                                mkdir -p  ${orahome}
+                                                                                chown -R oracle:oinstall ${orahome}
+                                                                                echo "Directory has been created and ownership is changed"
+
+                                                                        echo ""
+                                                                        fi
+
+                                                                        echo ""
+                                                                        printf "Enter the Installer - [SE]/[EE]: "
+                                                                        read orainstaller
+                                                                             if [ -z $orainstaller ];
+                                                                        then
+                                                                                orainstaller="EE"
+                                                                                echo " Your Oracle Edition is set to default value -  ${orainstaller}"
+                                                                        else
+                                                                                echo "ORACLE Edition  value is set to ${orahome}"
+
+                                                                        echo ""
+                                                                        fi
+
+
+                                                                        echo "Installing the Mandatory pre-requisites...!"
+                                                                        echo ""
+                                                                        echo "Pushing the status on Screen.."
+                                                                        echo ""
+                                                                        user_group_add  #Function Call of User_group
+                                                                        pre_req_12c     #Function Call of Pre-Req
+                                                                        bashprof_set
+                                                                                                                                                ora_unzip
+                                                                ;;
+                                                        "2") echo ""
+                                                                        echo "You have Chose Option - 1: 12.2.0.1"
+                                                                        echo "Going forward if you hit enter with no values will be treated as default setting"
+                                                                        echo ""
+                                                                       printf "ORACLE_BASE LOCATION (default loc - /u01/app/oracle) : "
+                                                                        read orabase
+                                                                        if [ -z $orabase ];
+                                                                        then
+                                                                                orabase="/u01/app/oracle"
+                                                                                echo " Your Oracle base is set to default value -  ${orabase}"
+                                                                        else
+                                                                                echo "ORACLE BASE value is set to ${orabase}"
+
+                                                                        echo ""
+                                                                        fi
+                                                                        printf "ORACLE_HOME LOCATION (default loc - /u01/app/oracle/product/12.2.0.1/db_1) "
+                                                                        read orahome
+                                                                        echo ""
+                                                                            if [ -z $orahome ];
+                                                                        then
+                                                                                orahome="/u01/app/oracle/product/12.2.0.1/db_1"
+                                                                                echo " Your Oracle base is set to default value -  ${orahome}"
+                                                                                mkdir -p  ${orahome}
+                                                                                chown -R oracle:oinstall ${orahome}
+                                                                                echo "Directory has been created and ownership is changed"
+                                                                        else
+                                                                                echo "ORACLE Home value is set to ${orahome}"
+                                                                                mkdir -p  ${orahome}
+                                                                                chown -R oracle:oinstall ${orahome}
+                                                                                echo "Directory has been created and ownership is changed"
+
+                                                                        echo ""
+                                                                        fi
+
+                                                                        echo ""
+                                                                        printf "Enter the Installer - [SE]/[EE]: "
+                                                                        read orainstaller
+                                                                             if [ -z $orainstaller ];
+                                                                        then
+                                                                                orainstaller="EE"
+                                                                                echo " Your Oracle Edition is set to default value -  ${orainstaller}"
+                                                                        else
+                                                                                echo "ORACLE Edition  value is set to ${orahome}"
+
+                                                                        echo ""
+                                                                        fi
+                                                                        echo "Installing the Mandatory pre-requisites...!"
+                                                                        echo ""
+                                                                        echo ""
+                                                                        user_group_add
+                                                                        echo ""
+                                                                        pre_req_12c
+                                                                        echo ""
+                                                                        bashprof_set
+                                                                                                                                                echo ""
+                                                                                                                                                ora_unzip
+                                                                ;;
+                                                                esac
+
+
+
+
+                                                                                else
+
+                                                                                                      case $choice in
+                                                         "1") echo ""
+                                                                        echo "You have Chose Option - 1: 12.1.0.2"
+
+                                                                                orabase="/u01/app/oracle"
+                                                                                echo "ORACLE BASE value is set to - ${orabase}"
+                                                                                orahome="/u01/app/oracle/product/12.1.0.2/db_1"
+                                                                                echo " Your Oracle base is set to - ${orahome}"
+                                                                                mkdir -p  ${orahome}
+                                                                                chown -R oracle:oinstall ${orahome}
+                                                                                echo "Directory has been created and ownership is changed"
+
+                                                                         echo ""
+                                                                         orainstaller="EE"
+                                                                         echo " Your Oracle Edition is set to default value -  ${orainstaller}"
+
+                                                                        echo "Installing the Mandatory pre-requisites...!"
+                                                                        echo ""
+                                                                        echo "Pushing the status on Screen.."
+                                                                        echo ""
+                                                                        user_group_add  #Function Call of User_group
+                                                                        pre_req_12c     #Function Call of Pre-Req
+                                                                        bashprof_set
+                                                                                                                                                ora_unzip
+                                                                ;;
+                                                        "2") echo ""
+                                                                        echo "You have Chose Option - 1: 12.2.0.1"
+                                                                        orabase="/u01/app/oracle"
+                                                                        echo "ORACLE BASE value is set to - ${orabase}"
+                                                                        orahome="/u01/app/oracle/product/12.2.0.1/db_1"
+                                                                        echo " Your Oracle base is set to - ${orahome}"
+                                                                        mkdir -p  ${orahome}
+                                                                        chown -R oracle:oinstall ${orahome}
+                                                                        echo "Directory has been created and ownership is changed"
+
+                                                                         echo ""
+                                                                         orainstaller="EE"
+                                                                         echo " Your Oracle Edition is set to default value -  ${orainstaller}"
+
+                                                                        echo "Installing the Mandatory pre-requisites...!"
+                                                                        echo ""
+                                                                        echo "Pushing the status on Screen.."
+                                                                        echo ""
+                                                                        user_group_add  #Function Call of User_group
+                                                                        pre_req_12c     #Function Call of Pre-Req
+                                                                        bashprof_set
+                                                                        ora_unzip
+                                                                ;;
+
+                                                                esac
+                                                        fi
+                ;;
+        *)
+                echo ""
+                echo "Invalid Choice... Try again!!"
+                ;;
+esac
+
+
+
+
+else
+echo ""
+echo ""
+echo "Attention!!!!!!!"
+echo "Work on the requirements and comeback to the script only once they are met else you may face abnormalities while Installation"
+echo ""
+
+sleep 4
+
+echo "***********Thank you***********"
+
+
+fi

@@ -1,0 +1,10 @@
+SQL> 
+SQL> SELECT GRANTEE, GRANTED_ROLE
+  2  FROM DBA_ROLE_PRIVS
+  3  WHERE granted_role='DELETE_CATALOG_ROLE'
+  4  AND GRANTEE NOT IN ('DBA','SYS');
+
+no rows selected
+
+SQL> 
+SQL> spool off

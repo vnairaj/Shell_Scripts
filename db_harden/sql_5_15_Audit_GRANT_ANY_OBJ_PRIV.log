@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT GRANT ANY OBJECT PRIVILEGE;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

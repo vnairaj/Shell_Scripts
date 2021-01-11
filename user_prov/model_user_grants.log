@@ -1,0 +1,6 @@
+select grantee
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+

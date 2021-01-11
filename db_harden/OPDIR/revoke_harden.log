@@ -1,0 +1,271 @@
+SQL> revoke ALTER      from VINAY;
+revoke ALTER      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'ALTER' does not exist 
+
+
+SQL> revoke DELETE	from VINAY;
+revoke DELETE      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'DELETE' does not exist 
+
+
+SQL> revoke INDEX      from VINAY;
+revoke INDEX      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'INDEX' does not exist 
+
+
+SQL> revoke INSERT	from VINAY;
+revoke INSERT      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'INSERT' does not exist 
+
+
+SQL> revoke SELECT	from VINAY;
+revoke SELECT      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'SELECT' does not exist 
+
+
+SQL> revoke UPDATE	from VINAY;
+revoke UPDATE      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'UPDATE' does not exist 
+
+
+SQL> revoke REFERENCES	    from VINAY;
+revoke REFERENCES      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'REFERENCES' does not exist 
+
+
+SQL> revoke READ      from VINAY;
+revoke READ      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'READ' does not exist 
+
+
+SQL> revoke ON COMMIT REFRESH	 from VINAY;
+revoke ON COMMIT REFRESH    from VINAY
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'VINAY' 
+
+
+SQL> revoke QUERY REWRITE     from VINAY;
+revoke QUERY REWRITE     from VINAY
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'VINAY' 
+
+
+SQL> revoke DEBUG      from VINAY;
+revoke DEBUG      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'DEBUG' does not exist 
+
+
+SQL> revoke FLASHBACK	   from VINAY;
+revoke FLASHBACK      from VINAY
+       *
+ERROR at line 1:
+ORA-01919: role 'FLASHBACK' does not exist 
+
+
+SQL> revoke ALTER      from INTELLECTCARDS;
+revoke ALTER      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'ALTER' does not exist 
+
+
+SQL> revoke DELETE	from INTELLECTCARDS;
+revoke DELETE      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'DELETE' does not exist 
+
+
+SQL> revoke INDEX      from INTELLECTCARDS;
+revoke INDEX      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'INDEX' does not exist 
+
+
+SQL> revoke INSERT	from INTELLECTCARDS;
+revoke INSERT      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'INSERT' does not exist 
+
+
+SQL> revoke SELECT	from INTELLECTCARDS;
+revoke SELECT      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'SELECT' does not exist 
+
+
+SQL> revoke UPDATE	from INTELLECTCARDS;
+revoke UPDATE      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'UPDATE' does not exist 
+
+
+SQL> revoke REFERENCES	    from INTELLECTCARDS;
+revoke REFERENCES      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'REFERENCES' does not exist 
+
+
+SQL> revoke READ      from INTELLECTCARDS;
+revoke READ      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'READ' does not exist 
+
+
+SQL> revoke ON COMMIT REFRESH	 from INTELLECTCARDS;
+revoke ON COMMIT REFRESH    from INTELLECTCARDS
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'INTELLECTCARDS' 
+
+
+SQL> revoke QUERY REWRITE     from INTELLECTCARDS;
+revoke QUERY REWRITE     from INTELLECTCARDS
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'INTELLECTCARDS' 
+
+
+SQL> revoke DEBUG      from INTELLECTCARDS;
+revoke DEBUG      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'DEBUG' does not exist 
+
+
+SQL> revoke FLASHBACK	   from INTELLECTCARDS;
+revoke FLASHBACK      from INTELLECTCARDS
+       *
+ERROR at line 1:
+ORA-01919: role 'FLASHBACK' does not exist 
+
+
+SQL> revoke ALTER      from CARDS_FIN;
+revoke ALTER      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'ALTER' does not exist 
+
+
+SQL> revoke DELETE	from CARDS_FIN;
+revoke DELETE      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'DELETE' does not exist 
+
+
+SQL> revoke INDEX      from CARDS_FIN;
+revoke INDEX      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'INDEX' does not exist 
+
+
+SQL> revoke INSERT	from CARDS_FIN;
+revoke INSERT      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'INSERT' does not exist 
+
+
+SQL> revoke SELECT	from CARDS_FIN;
+revoke SELECT      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'SELECT' does not exist 
+
+
+SQL> revoke UPDATE	from CARDS_FIN;
+revoke UPDATE      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'UPDATE' does not exist 
+
+
+SQL> revoke REFERENCES	    from CARDS_FIN;
+revoke REFERENCES      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'REFERENCES' does not exist 
+
+
+SQL> revoke READ      from CARDS_FIN;
+revoke READ      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'READ' does not exist 
+
+
+SQL> revoke ON COMMIT REFRESH	 from CARDS_FIN;
+revoke ON COMMIT REFRESH    from CARDS_FIN
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'CARDS_FIN' 
+
+
+SQL> revoke QUERY REWRITE     from CARDS_FIN;
+revoke QUERY REWRITE     from CARDS_FIN
+*
+ERROR at line 1:
+ORA-01952: system privileges not granted to 'CARDS_FIN' 
+
+
+SQL> revoke DEBUG      from CARDS_FIN;
+revoke DEBUG      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'DEBUG' does not exist 
+
+
+SQL> revoke FLASHBACK	   from CARDS_FIN;
+revoke FLASHBACK      from CARDS_FIN
+       *
+ERROR at line 1:
+ORA-01919: role 'FLASHBACK' does not exist 
+
+
+SQL> revoke all on DBA_DV_STATUS from VRDB008;
+
+Revoke succeeded.
+
+SQL> revoke all on DBA_DV_STATUS from VRDB009;
+
+Revoke succeeded.
+
+SQL> revoke all on  from ;
+revoke all on  from 
+               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> spool off
+
+*************************** Revoke Hardening Sestion Ends here ***************************
+*********************************************************************************

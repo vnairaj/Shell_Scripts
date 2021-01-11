@@ -1,0 +1,14 @@
+SQL> 
+SQL> SELECT UPPER(VALUE) FROM V$PARAMETER WHERE UPPER(NAME) = 'AUDIT_SYS_OPERATIONS';
+
+UPPER(VALUE)                                                                    
+--------------------------------------------------------------------------------
+TRUE                                                                            
+
+SQL> 
+SQL> spool off
+
+2.2.1 Ensure SYS AUDIT OPERATION ARE ENABLED  - AS PER CIS STANDARDS
+
+*************************** End of this module 2.2.1 check ***************************
+*********************************************************************************

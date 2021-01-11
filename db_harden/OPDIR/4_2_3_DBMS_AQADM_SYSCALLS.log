@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE GRANTEE='PUBLIC'
+  4  AND PRIVILEGE='EXECUTE'
+  5  AND TABLE_NAME='DBMS_AQADM_SYSCALLS';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.2.3 Ensure EXECUTE Is Revoked from PUBLIC on DBMS_AQADM_SYSCALLS - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.2.3 check ***************************
+*********************************************************************************

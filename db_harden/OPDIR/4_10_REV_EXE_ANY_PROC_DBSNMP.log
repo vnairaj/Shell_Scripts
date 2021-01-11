@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='EXECUTE ANY PROCEDURE'
+  4  AND GRANTEE='DBSNMP';
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.10 Ensure EXECUTE Is Revoked from PUBLIC on DBMS_FILE_TRANSFER  - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.10 check ***************************
+*********************************************************************************

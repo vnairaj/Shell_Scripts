@@ -1,0 +1,7 @@
+groupadd  oinstall
+groupadd  dba
+groupadd  oper
+
+useradd oracle
+usermod -g oinstall -G dba,oper oracle
+

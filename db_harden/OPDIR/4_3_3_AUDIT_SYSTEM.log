@@ -1,0 +1,16 @@
+SQL> 
+SQL> SELECT GRANTEE, PRIVILEGE
+  2  FROM DBA_SYS_PRIVS
+  3  WHERE PRIVILEGE='AUDIT SYSTEM'
+  4  AND GRANTEE NOT IN ('DBA','DATAPUMP_IMP_FULL_DATABASE','IMP_FULL_DATABASE',
+  5  'SYS','AUDIT_ADMIN');
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 4.3.3 Ensure AUDIT SYSTEM Is Revoked from Unauthorized GRANTEE - AS PER CIS STANDARDS 
+
+*************************** End of this module 4.3.3 check ***************************
+*********************************************************************************

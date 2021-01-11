@@ -1,0 +1,20 @@
+SQL> 
+SQL> SELECT PROFILE, RESOURCE_NAME, LIMIT
+  2  FROM DBA_PROFILES
+  3  WHERE PROFILE= 'DEFAULT' AND RESOURCE_NAME='FAILED_LOGIN_ATTEMPTS'
+  4  AND
+  5  (
+  6  LIMIT = 'DEFAULT'
+  7  OR LIMIT = 'UNLIMITED'
+  8  OR LIMIT > 5
+  9  );
+
+no rows selected
+
+SQL> 
+SQL> spool off
+
+ 3.1 Ensure FAILED_LOGIN_ATTEMPTS Is Less than or Equal to 5 - AS PER CIS STANDARDS 
+
+*************************** End of this module 3.1 check ***************************
+*********************************************************************************

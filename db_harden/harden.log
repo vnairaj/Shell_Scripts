@@ -1,0 +1,21 @@
+SQL> 
+SQL> prompt "****************** 1.2 Change the Passwords of all default users ******************"
+"****************** 1.2 Change the Passwords of all default users ******************"
+SQL> 
+SQL> begin
+  2  for r_user in
+  3  (select username from dba_users_with_defpwd where username not like '%XS$NULL%')
+  4  loop
+  5  DBMS_OUTPUT.PUT_LINE('Password for user '||r_user.username||' will be changed.');
+  6  execute immediate 'alter user "'||r_user.username||'" identified by
+  7  "'||DBMS_RANDOM.string('a',16)||'"account lock password expire';
+  8  end loop;
+  9  end;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> set echo off
+"******************  END OF 1.2 Change the Passwords of all default users ******************"
+"****************** 1.3 Ensure All Sample Data And Users Have Been Removed ******************"

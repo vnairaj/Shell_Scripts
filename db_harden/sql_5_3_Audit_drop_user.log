@@ -1,0 +1,7 @@
+SQL> 
+SQL> AUDIT DROP USER;
+
+Audit succeeded.
+
+SQL> 
+SQL> spool off

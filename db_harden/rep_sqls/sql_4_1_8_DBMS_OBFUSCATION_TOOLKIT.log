@@ -1,0 +1,13 @@
+SQL> 
+SQL> SELECT PRIVILEGE
+  2  FROM DBA_TAB_PRIVS
+  3  WHERE GRANTEE='PUBLIC'
+  4  AND PRIVILEGE='EXECUTE'
+  5  AND TABLE_NAME='DBMS_OBFUSCATION_TOOLKIT';
+
+PRIVILEGE                                                                       
+----------------------------------------                                        
+EXECUTE                                                                         
+
+SQL> 
+SQL> spool off
